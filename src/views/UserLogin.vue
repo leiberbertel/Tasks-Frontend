@@ -1,6 +1,5 @@
 <template>
   <div class="login-container">
-  <div class="background-blur"></div>
     <div class="login-content">
       <div class="login-quote">
         <p class="text-intro">El tiempo es más valioso que el dinero, puedes conseguir más dinero pero no puedes conseguir más tiempo</p>
@@ -72,18 +71,6 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100vh;
-}
-
-.background-blur {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../public/bg-main.jpg'); 
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
 }
 
 .login-content {

@@ -75,7 +75,6 @@ export default {
 }
 
 
-
 .form-title {
   margin-bottom: 1em;
   color: #fff;
