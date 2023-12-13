@@ -6,7 +6,7 @@ import axios from 'axios';
 import Header from './components/HeaderComp';
 import Footer from './components/FooterComp';
 
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://localhost:8090';
 
 const app = createApp(App);
 app.use(router);
