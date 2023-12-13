@@ -2,13 +2,14 @@
   <div class="login-container">
     <div class="login-content">
       <div class="login-quote">
-        <p class="text-intro">El tiempo es más valioso que el dinero, puedes conseguir más dinero pero no puedes conseguir más tiempo</p>
+        <p class="text-intro">El tiempo es más valioso que el dinero, puedes conseguir más dinero pero no puedes conseguir
+          más tiempo</p>
         <button @click="toggleForm" class="btn register-btn">Conoce más</button>
       </div>
       <div class="login-form-container">
         <form @submit.prevent="login" class="login-form">
           <h2 class="form-title">Iniciar sesión</h2>
-          
+
           <div class="input-wrapper">
             <box-icon name='user' color='#ffffff'></box-icon>
             <input class="input-field" v-model="loginData.username" type="text" placeholder="Nombre de usuario" required>
@@ -42,7 +43,10 @@ export default {
     },
     async login() {
       try {
-        const response = await this.$axios.post('/auth/login', this.loginData);
+        const headers = {
+          'Content-Type': 'application/json'
+        };
+        const response = await this.$axios.post('/auth/login', this.loginData, { headers });
         localStorage.setItem('jwtToken', response.data.data.token);
         this.$router.push('/tasks');
       } catch (error) {
@@ -58,6 +62,7 @@ export default {
   clear: #fff;
   font-family: 'Segoe UI', Verdana, sans-serif;
 }
+
 .text-intro {
   margin-top: 25px;
   font-weight: 500;
@@ -111,7 +116,7 @@ export default {
   background-color: transparent;
 }
 
-.register-btn:hover{
+.register-btn:hover {
   background-color: #dfdede;
   color: #002;
 }
@@ -129,12 +134,12 @@ export default {
 
 .input-wrapper {
   position: relative;
-  margin-bottom: 1em; 
+  margin-bottom: 1em;
 }
 
 .input-wrapper box-icon {
   position: absolute;
-  left: 30px; 
+  left: 30px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
@@ -143,10 +148,10 @@ export default {
 .input-field {
   background: transparent;
   border: none;
-  border-bottom: 1px solid #dfdede; 
+  border-bottom: 1px solid #dfdede;
   width: 80%;
-  padding: 10px 10px 10px 30px; 
-  outline: none; 
+  padding: 10px 10px 10px 30px;
+  outline: none;
   font-size: 1em;
   color: #fff;
 }
@@ -159,5 +164,4 @@ export default {
 .input-field:focus {
   color: #fff;
 }
-
 </style>
