@@ -1,11 +1,9 @@
 <template>
   <footer class="footer">
-    <div class="content">
-      <div class="copy">
-        <a href="https://leiberbertel.github.io/" target="_blank">
-          © {{ new Date().getFullYear() }} Leiber Bertel
-        </a>
-      </div>
+    <div class="copy">
+      <a href="https://leiberbertel.github.io/" target="_blank">
+        © {{ new Date().getFullYear() }} Leiber Bertel
+      </a>
     </div>
   </footer>
 </template>
@@ -48,10 +46,11 @@ a {
 }
 
 .footer {
-  padding: 40px 0;
+  height: 50px;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  left: 0;
 }
 </style>
   
