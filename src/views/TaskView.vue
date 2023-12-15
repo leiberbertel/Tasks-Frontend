@@ -15,14 +15,12 @@
       <i class="bx bx-plus-circle" @click="addTask()">
         <box-icon color="white" class="add-task" name='add-to-queue'></box-icon>
       </i>
-
       <div class="todo-list">
         <div class="todo-item" v-for="task in formattedTasks" :key="task.taskId">
           <div class="task-details">
             <i :class="['bx', task.state ? 'bx-checkbox' : 'bx-checkbox-checked']" @click="toggleState(task.taskId)">
               <box-icon color="white" :name="task.state ? 'checkbox-checked' : 'checkbox'"></box-icon>
             </i>
-
             <p class="task-title">{{ task.title }}</p>
             <p class="task-description">{{ task.description }}</p>
             <p class="task-alert">{{ task.alert_time }}</p>
@@ -82,8 +80,6 @@ export default {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
         };
         const parsedDate = new Date(date);
         if (!isNaN(parsedDate)) {
@@ -96,7 +92,7 @@ export default {
       if (date) {
         const parsedDate = new Date(date);
         if (!isNaN(parsedDate)) {
-          return parsedDate.toISOString().slice(0, 16);
+          return parsedDate.toISOString().split('T')[0];
         }
       }
       return null;
@@ -201,6 +197,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   width: 100%;
   height: 92vh;
 }
@@ -239,7 +236,7 @@ box-icon:hover {
 .todo-content {
   background-color: #25273C;
   color: #ffffff;
-  max-width: 700px;
+  max-width: 610px;
   margin-bottom: 70px;
   border-radius: 8px;
   padding: 20px 20px 20px 20px;
@@ -267,5 +264,15 @@ box-icon:hover {
 
 .task-actions i {
   margin-left: 10px;
+}
+
+p {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 2rem;
+  position: relative;
+  width: fit-content;
+  word-break: break-word;
+  text-align: start;
 }
 </style>
