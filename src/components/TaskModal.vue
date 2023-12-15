@@ -15,7 +15,7 @@
 
         <div class="form-group">
           <label for="alert-time">Hora de alerta</label>
-          <input type="datetime-local" id="alert-time" v-model="taskData.alertTime" required>
+          <input min="2023-12-14" type="date" id="alert-time" v-model="taskData.alertTime" required>
         </div>
 
         <button type="submit">{{ isEdit ? 'Guardar' : 'Agregar tarea' }}</button>
@@ -69,11 +69,6 @@ export default {
 <style scoped>
 * {
   color: #fff;
-}
-
-#alert-time {
-  padding: 10px;
-  font-size: 16px;
 }
 
 .modal-overlay {
