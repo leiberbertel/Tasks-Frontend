@@ -6,6 +6,7 @@
     <nav class="nav">
       <router-link to="/">Iniciar sesión</router-link>
       <router-link to="/register">Registrarse</router-link>
+      <a v-if="isLoggedIn" @click="logout" class="logout-link">Salir</a>
     </nav>
   </div>
 </template>
@@ -58,4 +59,29 @@
 .nav a:hover::after {
   transform: scaleX(1);
 }
+
+.logout-link {
+  float: right;
+  cursor: pointer;
+}
 </style>
+
+<script>
+export default {
+  computed: {
+    isLoggedIn() {
+      return localStorage.getItem('jwtToken') !== null;
+    }
+  },
+  methods: {
+    async logout() {
+      try {
+        localStorage.removeItem('jwtToken');
+        this.$router.push('/');
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+};
+</script>
