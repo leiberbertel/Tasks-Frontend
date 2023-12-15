@@ -1,25 +1,25 @@
 <template>
-    <div class="background-blur">
-      <form @submit.prevent="register" class="content-main">
-        <h2 class="form-title">Regístrate con nosotros</h2>
-        <div class="input-wrapper">
-          <box-icon name='user' color='#ffffff'></box-icon>
-          <input class="input-field" v-model="registerData.username" type="text" placeholder="Nombre de usuario" required>
-        </div>
+  <div class="register-container">
+    <form @submit.prevent="register" class="register-content">
+      <h2 class="form-title">Regístrate con nosotros</h2>
+      <div class="input-wrapper">
+        <box-icon name='user' color='#ffffff'></box-icon>
+        <input class="input-field" v-model="registerData.username" type="text" placeholder="Nombre de usuario" required>
+      </div>
 
-        <div class="input-wrapper">
-          <box-icon name='lock-alt' color='#ffffff'></box-icon>
-          <input class="input-field" v-model="registerData.password" type="password" placeholder="Contraseña" required>
-        </div>
+      <div class="input-wrapper">
+        <box-icon name='lock-alt' color='#ffffff'></box-icon>
+        <input class="input-field" v-model="registerData.password" type="password" placeholder="Contraseña" required>
+      </div>
 
-        <div class="input-wrapper">
-          <box-icon name='envelope' color='#ffffff'></box-icon>
-          <input class="input-field" v-model="registerData.email" type="email" placeholder="Correo electrónico" required>
-        </div>
+      <div class="input-wrapper">
+        <box-icon name='envelope' color='#ffffff'></box-icon>
+        <input class="input-field" v-model="registerData.email" type="email" placeholder="Correo electrónico" required>
+      </div>
 
-        <button type="submit" class="btn register-btn">Crear una cuenta</button>
-      </form>
-    </div>
+      <button type="submit" class="btn register-btn">Crear una cuenta</button>
+    </form>
+  </div>
 </template>
   
 <script>
@@ -47,9 +47,17 @@ export default {
 };
 </script>
 <style>
+.register-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 92vh;
+}
 
-.content-main {
-  margin-bottom: 3em;
+.register-content {
+  margin-bottom: 120px;
   width: 45%;
 }
 
@@ -59,24 +67,8 @@ export default {
 }
 
 
-.background-blur {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../public/bg-main.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
-
 
 .form-title {
-  margin-bottom: 1em;
   color: #fff;
 }
 
