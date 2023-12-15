@@ -75,13 +75,13 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 92vh;
 }
 
 .login-content {
+  margin-bottom: 50px;
   position: relative;
   display: flex;
-  z-index: 1;
 }
 
 .login-quote {
